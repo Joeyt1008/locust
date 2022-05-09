@@ -185,14 +185,14 @@ jobs:
             python --version && \
             uname -m && \
             git config --global --add safe.directory /ws && \
-            yum install -y python3-distutils python3-apt libpq-dev python3-dev && \
+            yum -y install python3-distutils-extra postgresql-libs postgresql-devel libpqxx-devel python3-devel && \
             python3 -m pip install --upgrade pip && \
             python3 -m pip install -U wheel setuptools pip tox codecov setuptools-scm gevent mock retry pyquery cryptography && \
             python3 -m pip install -r docs/requirements.txt && \
             python3 setup.py install && \
             python3 -m pip install -U --pre locust && \
             python3 -m pip install locust && \
-            apt-get install -y python3-gevent python3-gevent-websocket && \
+            yum -y install libevent-devel python3-gevent python3-gevent-websocket && \
             export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
             python3 -m tox -e py37 && \
             deactivate'
