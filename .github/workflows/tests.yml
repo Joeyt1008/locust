@@ -172,7 +172,7 @@ jobs:
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
            arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && apt install software-properties-common && add-apt-repository ppa:deadsnakes/ppa && apt install python3.8 && apt-get -y install python3-pip curl git && \
+           bash -exc 'apt-get update && apt install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa && apt install python3.8 && apt-get -y install python3-pip curl git && \
            uname -m && \
               git config --global --add safe.directory /ws && \
               python3.8 -m pip install --upgrade pip && \
