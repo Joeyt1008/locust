@@ -190,6 +190,7 @@ jobs:
               python3 -m pip install tox coverage gevent && \
               python3 -m pip install -U --pre locust && \
               python3 -m pip install locust && \
+              python3 -m pip install codecov mock retry pyquery cryptography && \
               apt-get install -y python3-gevent python3-gevent-websocket && \
               export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
               python3 -m tox -e py310'
