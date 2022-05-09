@@ -177,6 +177,8 @@ jobs:
            apt install -y python3.8 && apt-get -y install python3-pip curl git && \
            uname -m && \
               git config --global --add safe.directory /ws && \
+              apt-get install -y python3-distutils && \
+              apt-get install -y python3-apt && \
               python3.8 -m pip install --upgrade pip && \
               python3.8 --version && \
               uname -m && \
