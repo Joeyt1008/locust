@@ -164,8 +164,8 @@ jobs:
     name: Build and Test for arm64
     strategy:
       matrix:
-        pyver: [cp38-cp38m]
-    runs-on: ubuntu-20.04
+        pyver: [cp37-cp37m]
+    runs-on: ubuntu-18.04
     env:
       py: /opt/python/${{ matrix.pyver }}/bin/python
       img: quay.io/pypa/manylinux2014_aarch64  
@@ -194,7 +194,7 @@ jobs:
             python3 -m pip install locust && \
             apt-get install -y python3-gevent python3-gevent-websocket && \
             export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
-            python3 -m tox -e py38 && \
+            python3 -m tox -e py37 && \
             deactivate'
   
   
