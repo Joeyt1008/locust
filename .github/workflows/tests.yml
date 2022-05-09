@@ -172,20 +172,20 @@ jobs:
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
            arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && apt-get -y install python3 python3-pip python3-venv curl git && \
+           bash -exc 'apt-get update && apt-get -y install python3.8 python3.8-pip curl git && \
            uname -m && \
               git config --global --add safe.directory /ws && \
-              python3 -m pip install --upgrade pip && \
-              python3 --version && \
+              python3.8 -m pip install --upgrade pip && \
+              python3.8 --version && \
               uname -m && \
-              apt-get install -y libpq-dev python3-dev && \
-              pip3 install -U wheel setuptools pip && \
-              pip3 install tox codecov setuptools-scm && \
-              pip3 install -r docs/requirements.txt && \
-              python3 setup.py install && \
-              python3 -m pip install tox coverage gevent && \
-              pip3 install -U --pre locust && \
-              pip3 install locust && \
-              apt-get install -y python3-gevent python3-gevent-websocket && \
+              apt-get install -y libpq-dev python3.8-dev && \
+              python3.8 -m pip install -U wheel setuptools pip && \
+              python3.8 -m pip install tox codecov setuptools-scm && \
+              python3.8 -m pip install -r docs/requirements.txt && \
+              python3.8 setup.py install && \
+              python3.8 -m pip install tox coverage gevent && \
+              python3.8 -m pip install -U --pre locust && \
+              python3.8 -m pip install locust && \
+              apt-get install -y python3.8-gevent python3.8-gevent-websocket && \
               export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
               python3 -m tox -e py38'
