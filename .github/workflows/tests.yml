@@ -172,7 +172,7 @@ jobs:
       run: |
            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
            arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && apt-get -y install python3.8 python3.8-pip curl git && \
+           bash -exc 'apt-get update && apt install software-properties-common && add-apt-repository ppa:deadsnakes/ppa && apt install python3.8 && apt-get -y install python3-pip curl git && \
            uname -m && \
               git config --global --add safe.directory /ws && \
               python3.8 -m pip install --upgrade pip && \
@@ -188,4 +188,4 @@ jobs:
               python3.8 -m pip install locust && \
               apt-get install -y python3.8-gevent python3.8-gevent-websocket && \
               export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
-              python3 -m tox -e py38'
+              python3.8 -m tox -e py38'
