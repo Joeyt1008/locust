@@ -185,7 +185,7 @@ jobs:
             python --version && \
             uname -m && \
             git config --global --add safe.directory /ws && \
-            yum -y install python3-distutils-extra postgresql-libs postgresql-devel libpqxx-devel python3-devel && \
+            yum -y install postgresql-libs postgresql-devel libpqxx-devel python3-devel && \
             python3 -m pip install --upgrade pip && \
             python3 -m pip install -U wheel setuptools pip tox codecov setuptools-scm gevent mock retry pyquery cryptography && \
             python3 -m pip install -r docs/requirements.txt && \
