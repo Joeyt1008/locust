@@ -174,7 +174,7 @@ jobs:
            arm64v8/ubuntu:latest \
            bash -exc 'apt-get update && apt install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa && \
            ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && export DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata && dpkg-reconfigure --frontend noninteractive tzdata && \
-           apt install -y python3.8 && apt-get -y install python3-pip curl git && \
+           apt install -y python3.8 && apt-get -y install python3.8-pip curl git && \
            uname -m && \
               git config --global --add safe.directory /ws && \
               apt-get install -y python3-distutils && \
