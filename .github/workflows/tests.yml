@@ -160,35 +160,35 @@ jobs:
           skip_existing: true
 
 
-    test-aarch64:
-    name: aarch64_test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up QEMU
-      id: qemu
-      uses: docker/setup-qemu-action@v1
-    - name: Arm64 test case
-      run: |
-           docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-           arm64v8/ubuntu:latest \
-           bash -exc 'apt-get update && apt-get -y install python3 python3-pip python3-venv curl git && \
-           uname -m && \
-              git config --global --add safe.directory /ws && \
-              python3 -m pip install --upgrade pip && \
-              python3 --version && \
+  test-aarch64:
+      name: aarch64_test
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
+      - name: Arm64 test cases
+        run: |
+              docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+              arm64v8/ubuntu:latest \
+              bash -exc 'apt-get update && apt-get -y install python3 python3-pip python3-venv curl git && \
               uname -m && \
-              apt-get install -y libpq-dev python3-dev && \
-              pip3 install -U wheel setuptools pip && \
-              pip3 install tox codecov && \
-              pip3 install -r docs/requirements.txt && \
-              python3 setup.py install && \
-              python3 -m pip install tox coverage gevent && \
-              pip3 install -U --pre locust && \
-              pip3 install locust && \
-              apt-get install -y python3-gevent python3-gevent-websocket && \
-              export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
-              python3 -m tox -e py38'
+                  git config --global --add safe.directory /ws && \
+                  python3 -m pip install --upgrade pip && \
+                  python3 --version && \
+                  uname -m && \
+                  apt-get install -y libpq-dev python3-dev && \
+                  pip3 install -U wheel setuptools pip && \
+                  pip3 install tox codecov && \
+                  pip3 install -r docs/requirements.txt && \
+                  python3 setup.py install && \
+                  python3 -m pip install tox coverage gevent && \
+                  pip3 install -U --pre locust && \
+                  pip3 install locust && \
+                  apt-get install -y python3-gevent python3-gevent-websocket && \
+                  export BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 && \
+                  python3 -m tox -e py38'
   
  # test_armv64:
  #   name: Build and Test for arm64
